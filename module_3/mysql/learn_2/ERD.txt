@@ -1,0 +1,27 @@
+bước 1:Xác định các thực thể
+NHÀ CUNG CẤP
+ĐƠN ĐẶT HÀNG
+VẬT TƯ
+PHIẾU NHẬP 
+PHIẾU XUẤT 
+bước 2: Xác định mối quan hệ
+1-n: Nhà cung cấp và Đơn đặt hàng 
+n-n : + PHIẾU XUẤT và VẬT TƯ,
+      + VẬT TƯ và ĐƠN ĐẶT HÀNG 
+      + VẬT TƯ và PHIẾU NHẬP
+bước 3:
+- Trong mô hình này không có thuộc tính đa trị
+- Xác định các thuộc tính đa trị và tạo thành bảng mới
+các bảng mới được tạo thành là:
+    + Chi tiết phiếu xuất:bảng được tạo ra từ quan hệ n-n của bảng
+PHIEUXUAT VS VATTU
+    + Chi tiết đơn đặt hàng: bảng được tạo ra từ quan hệ n-n của bảng
+VATTU VS DONDH
+    + Chi tiết phiếu xuất: bảng được tạo ra từ quan hệ n-n của bảng
+VATTU VS PHIEUNHAP
+bước 4: liệt kê:
+NHACC,VATTU,DONDH,CTDONDH,PHIEUNHAP,CTPHIEUNHAP
+PHIEUXUAT,CTPHIEUXUAT
+tên nhà cung cấp 
+địa chỉ 
+số điện thoại
