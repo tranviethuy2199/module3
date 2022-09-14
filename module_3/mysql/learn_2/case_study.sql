@@ -174,4 +174,5 @@ VALUE(1,2,4,5),(2,2,5,8),(3,2,6,15),(4,3,1,1),(5,3,2,11),(6,1,3,1),(7,1,2,2),(8,
 SELECT * FROM nhan_vien WHERE (ho_ten like'T%' OR ho_ten LIKE 'H%' OR ho_ten LIKE 'K%') AND char_length(ho_ten)<15;
 -- SELECT * FROM nhan_vien WHERE (ho_ten regexp ^[HKT]) AND char_length(ho_ten)<15;
 SELECT * FROM khach_hang WHERE (TIMESTAMPDIFF(YEAR, ngay_sinh, CURDATE()) BETWEEN 18 AND 50) AND (dia_chi LIKE '%Đà Nẵng%' or dia_chi LIKE '%Quảng Trị%');
-SELECT khach_hang.ma_khach_hang , khach_hang.ho_ten , COUNT(hop_dong.ma_khach_hang) FROM khach_hang.hop_dong where (khach_hang.ma_loai_khach = 1) AND (khach_hang.ma_khac_hang = khach_hang.ma_hop_dong));
+-- SELECT khach_hang.ma_khach_hang , khach_hang.ho_ten , COUNT(hop_dong.ma_khach_hang) FROM khach_hang.hop_dong 
+-- where (khach_hang.ma_loai_khach = 1) AND (khach_hang.ma_khac_hang = khach_hang.ma_hop_dong));
