@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS furama_resort;
-CREATE DATABASE  furama_resort;
-USE furama_resort;
+DROP DATABASE IF EXISTS furama;
+CREATE DATABASE  furama;
+USE furama;
 CREATE TABLE  vi_tri(
 ma_vi_tri INT PRIMARY KEY AUTO_INCREMENT,
 ten_vi_tri VARCHAR(45)
@@ -185,52 +185,83 @@ INNER JOIN loai_khach ON khach_hang.ma_loai_khach = loai_khach.ma_loai_khach
 WHERE (loai_khach.ten_loai_khach="Diamond") GROUP BY hop_dong.ma_khach_hang ORDER BY so_lan_dat_phong ;
 
 -- yêu cầu 5
--- SELECT khach_hang.ma_khach_hang,khach_hang.ho_ten,loai_khach.ten_loai_khach, hop_dong.ma_hop_dong, dich_vu.ten_dich_vu, hop_dong.ngay_lam_hop_dong,hop_dong.ngay_ket_thuc, (ifnull(dich_vu.chi_phi_thue,0)+ SUM(ifnull(hop_dong_chi_tiet.so_luong,0)*ifnull(dich_vu_di_kem.gia,0))) as tong_tien
--- FROM khach_hang
--- JOIN loai_khach ON khach_hang.ma_loai_khach = loai_khach.ma_loai_khach 
--- LEFT JOIN hop_dong ON khach_hang.ma_khach_hang = hop_dong.ma_khach_hang
--- LEFT JOIN dich_vu ON hop_dong.ma_dich_vu = dich_vu.ma_dich_vu
--- LEFT JOIN hop_dong_chi_tiet ON hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong
--- LEFT JOIN dich_vu_di_kem ON dich_vu_di_kem.ma_dich_vu_di_kem = hop_dong_chi_tiet.ma_dich_vu_di_kem
--- GROUP BY hop_dong.ma_hop_dong
--- ORDER BY khach_hang.ma_khach_hang;
+SELECT khach_hang.ma_khach_hang , khach_hang.ho_ten ,loai_khach.ten_loai_khach, hop_dong.ma_hop_dong, dich_vu.ten_dich_vu, hop_dong.ngay_lam_hop_dong,
+hop_dong.ngay_ket_thuc, (ifnull(dich_vu.chi_phi_thue , 0)+ SUM(ifnull(hop_dong_chi_tiet.so_luong, 0)*ifnull(dich_vu_di_kem.gia,0))) as tong_tien
+FROM khach_hang
+JOIN loai_khach ON khach_hang.ma_loai_khach = loai_khach.ma_loai_khach 
+LEFT JOIN hop_dong ON khach_hang.ma_khach_hang = hop_dong.ma_khach_hang
+LEFT JOIN dich_vu ON hop_dong.ma_dich_vu = dich_vu.ma_dich_vu
+LEFT JOIN hop_dong_chi_tiet ON hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong
+LEFT JOIN dich_vu_di_kem ON dich_vu_di_kem.ma_dich_vu_di_kem = hop_dong_chi_tiet.ma_dich_vu_di_kem
+GROUP BY hop_dong.ma_hop_dong
+ORDER BY khach_hang.ma_khach_hang;
 
 -- yêu cầu 6
-SELECT dich_vu.ma_dich_vu, dich_vu.ten_dich_vu,dich_vu.dien_tich,dich_vu.chi_phi_thue, loai_dich_vu.ten_loai_dich_vu FROM
-dich_vu 
-INNER JOIN loai_dich_vu ON dich_vu.ma_loai_dich_vu = loai_dich_vu.ma_loai_dich_vu
-WHERE dich_vu.ma_dich_vu NOT IN (
-SELECT hop_dong.ma_dich_vu FROM hop_dong
-WHERE hop_dong.ngay_lam_hop_dong BETWEEN '2021-01-01' AND '2021-03-31');
+SELECT dich_vu.ma_dich_vu , dich_vu.ten_dich_vu , dich_vu.dien_tich , dich_vu.chi_phi_thue , loai_dich_vu.ten_loai_dich_vu 
+FROM dich_vu JOIN loai_dich_vu on dich_vu.ma_loai_dich_vu = loai_dich_vu.ma_loai_dich_vu 
+WHERE dich_vu.ma_dich_vu NOT IN (SELECT hop_dong.ma_dich_vu FROM hop_dong WHERE hop_dong.ngay_lam_hop_dong BETWEEN "2021-01-01" AND "2021-03-31") ;
 
--- yêu cầu 7
-SELECT dich_vu.ma_dich_vu, dich_vu.ten_dich_vu,dich_vu.dien_tich,dich_vu.so_nguoi_toi_da, dich_vu.chi_phi_thue, loai_dich_vu.ten_loai_dich_vu FROM
-dich_vu
-JOIN loai_dich_vu ON dich_vu.ma_loai_dich_vu = loai_dich_vu.ma_loai_dich_vu
-WHERE dich_vu.ma_dich_vu IN (
-SELECT hop_dong.ma_dich_vu FROM hop_dong
-WHERE hop_dong.ngay_lam_hop_dong BETWEEN'2020-01-00' AND '2020-12-31') AND dich_vu.ma_dich_vu NOT IN (
-SELECT hop_dong.ma_dich_vu FROM hop_dong
-WHERE hop_dong.ngay_lam_hop_dong > '2020-12-31');
+-- yêu cầu 7 
+SELECT dich_vu.ma_dich_vu , dich_vu.ten_dich_vu , dich_vu.dien_tich , dich_vu.so_nguoi_toi_da , dich_vu.chi_phi_thue , loai_dich_vu.ten_loai_dich_vu 
+FROM dich_vu JOIN loai_dich_vu on dich_vu.ma_loai_dich_vu = loai_dich_vu.ma_loai_dich_vu
+WHERE dich_vu.ma_dich_vu IN (SELECT hop_dong.ma_dich_vu FROM hop_dong WHERE hop_dong.ngay_lam_hop_dong BETWEEN "2020-01-01" AND "2020-12-31") AND dich_vu.ma_dich_vu
+ NOT IN (SELECT hop_dong.ma_dich_vu FROM hop_dong WHERE hop_dong.ngay_lam_hop_dong > "2020-12-31");
+ 
+ -- yêu cầu 8 
+ 
+ -- cách 1 : DISTINCT loại bỏ kết quả trùng lặp
+ SELECT DISTINCT khach_hang.ho_ten FROM khach_hang;
+ 
+ -- cách 2 : sử dụng UNION 2 lệnh select phải có cùng số biêu thức , trả về kết quả không trùng lặp 
+ SELECT khach_hang.ho_ten FROM khach_hang UNION SELECT khach_hang.ho_ten FROM khach_hang;
+ 
+ -- yêu cầu 9 
+ SELECT month(ngay_lam_hop_dong) as doanh_thu_theo_thang , COUNT(ma_hop_dong) FROM hop_dong WHERE YEAR(ngay_lam_hop_dong) = '2021' GROUP BY doanh_thu_theo_thang;
+ 
+ -- yêu cầu 10 
+ SELECT hop_dong.ma_hop_dong , hop_dong.ngay_lam_hop_dong , hop_dong.ngay_ket_thuc , hop_dong.tien_dat_coc , sum(hop_dong_chi_tiet.so_luong) as so_luong_dich_vu_di_kem
+ FROM hop_dong JOIN hop_dong_chi_tiet ON hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong GROUP BY hop_dong.ma_hop_dong;
+ 
+ -- yêu cầu 11 
+ SELECT khach_hang.ho_ten , loai_khach.ten_loai_khach , khach_hang.dia_chi , dich_vu_di_kem.ma_dich_vu_di_kem , dich_vu_di_kem.ten_dich_vu_di_kem  FROM dich_vu_di_kem
+JOIN hop_dong_chi_tiet ON hop_dong_chi_tiet.ma_dich_vu_di_kem = dich_vu_di_kem.ma_dich_vu_di_kem
+JOIN hop_dong ON hop_dong_chi_tiet.ma_hop_dong = hop_dong.ma_hop_dong
+JOIN khach_hang ON khach_hang.ma_khach_hang = hop_dong.ma_khach_hang
+JOIN loai_khach ON loai_khach.ma_loai_khach = khach_hang.ma_loai_khach
+WHERE loai_khach.ten_loai_khach = "Diamond" AND (khach_hang.dia_chi LIKE "%VINH%" OR khach_hang.dia_chi LIKE "%Quảng Ngãi%");
 
--- yêu cầu 8
-SELECT ho_ten FROM khach_hang
-GROUP BY ho_ten;
+-- yêu cầu 12 
+SELECT hop_dong.ma_hop_dong , nhan_vien.ho_ten , khach_hang.ho_ten , khach_hang.so_dien_thoai , dich_vu.ten_dich_vu , sum(ifnull(hop_dong_chi_tiet.so_luong,0)) as so_luong_dich_vu_di_kem , hop_dong.tien_dat_coc
+FROM hop_dong JOIN nhan_vien ON nhan_vien.ma_nhan_vien = hop_dong.ma_nhan_vien 
+JOIN khach_hang ON khach_hang.ma_khach_hang = hop_dong.ma_khach_hang
+JOIN dich_vu ON dich_vu.ma_dich_vu = hop_dong.ma_dich_vu
+JOIN hop_dong_chi_tiet ON hop_dong_chi_tiet.ma_hop_dong = hop_dong.ma_hop_dong 
+WHERE hop_dong.ma_hop_dong IN ( SELECT hop_dong.ma_hop_dong FROM hop_dong WHERE hop_dong.ngay_lam_hop_dong BETWEEN "2020-10-01" AND "2020-12-31")
+AND hop_dong.ma_hop_dong NOT IN
+(SELECT hop_dong.ngay_lam_hop_dong FROM hop_dong WHERE hop_dong.ngay_lam_hop_dong BETWEEN "2021-01-01" AND "2021-06-30" ) group by hop_dong.ma_hop_dong;
 
-SELECT DISTINCT ho_ten FROM khach_hang;
+-- yêu cầu 13 
+SELECT dich_vu_di_kem.ma_dich_vu_di_kem, dich_vu_di_kem.ten_dich_vu_di_kem, sum(hop_dong_chi_tiet.so_luong) as so_luong_dich_vu_di_kem  FROM dich_vu_di_kem
+JOIN hop_dong_chi_tiet ON hop_dong_chi_tiet.ma_dich_vu_di_kem = dich_vu_di_kem.ma_dich_vu_di_kem GROUP BY hop_dong_chi_tiet.ma_dich_vu_di_kem;
 
-SELECT ho_ten FROM khach_hang a
-UNION
-SELECT ho_ten FROM khach_hang b;
+-- yêu cầu 14 
+SELECT hop_dong.ma_hop_dong , loai_dich_vu.ten_loai_dich_vu , dich_vu_di_kem.ten_dich_vu_di_kem , count(hop_dong_chi_tiet.ma_dich_vu_di_kem) as so_lan_su_dung FROM hop_dong
+JOIN hop_dong_chi_tiet ON hop_dong_chi_tiet.ma_hop_dong = hop_dong.ma_hop_dong
+JOIN dich_vu_di_kem ON hop_dong_chi_tiet.ma_dich_vu_di_kem = dich_vu_di_kem.ma_dich_vu_di_kem
+JOIN dich_vu ON dich_vu.ma_dich_vu = hop_dong.ma_dich_vu
+JOIN loai_dich_vu ON loai_dich_vu.ma_loai_dich_vu = dich_vu.ma_loai_dich_vu
+ GROUP BY hop_dong_chi_tiet.ma_dich_vu_di_kem HAVING so_lan_su_dung = 1 ORDER BY hop_dong.ma_hop_dong;
+ 
+ -- yêu cầu 15 
+ SELECT nhan_vien.ma_nhan_vien , nhan_vien.ho_ten , trinh_do.ten_trinh_do ,bo_phan.ten_bo_phan, nhan_vien.so_dien_thoai , nhan_vien.dia_chi FROM nhan_vien 
+ JOIN trinh_do ON trinh_do.ma_trinh_do = nhan_vien.ma_trinh_do
+ JOIN bo_phan ON bo_phan.ma_bo_phan = nhan_vien.ma_bo_phan 
+ JOIN hop_dong ON hop_dong.ma_nhan_vien = nhan_vien.ma_nhan_vien WHERE (hop_dong.ngay_lam_hop_dong BETWEEN '2020-01-01' AND '2021-12-31' )
+ GROUP BY nhan_vien.ma_nhan_vien
+ HAVING count(hop_dong.ma_nhan_vien) <= 3;
 
--- yêu cầu 9
-SELECT month(ngay_lam_hop_dong) as thang, COUNT(ma_hop_dong) FROM hop_dong
-WHERE year(ngay_lam_hop_dong) = 2021
-GROUP BY thang
-ORDER BY thang;
+ 
 
--- yêu cầu 10
-SELECT hop_dong.ma_hop_dong, hop_dong.ngay_lam_hop_dong,hop_dong.ngay_ket_thuc, hop_dong.tien_dat_coc, SUM(ifnull(hop_dong_chi_tiet.so_luong,0))
-FROM hop_dong
-LEFT JOIN hop_dong_chi_tiet ON hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong
-GROUP BY hop_dong.ma_hop_dong;
+
+ 
+

@@ -62,6 +62,3 @@ SELECT * FROM  class where start_date > "2008-11-30" ;
 SELECT * FROM subject WHERE (creadit between 3 and 5);
 UPDATE student set class_id = 2 WHERE  student_id = 1 ;
 SELECT student.student_name , subject.sub_name , mark.mark FROM student , subject , mark WHERE subject.sub_id = mark.mark_id AND mark.student_id = student.student_id;
-
-
-	

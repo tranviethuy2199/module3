@@ -57,7 +57,9 @@ INSERT INTO mark (sub_id, student_id, mark, exam_times)
 VALUES (1, 1, 8, 1),
        (1, 2, 10, 2),
        (3, 1, 12, 1);
-SELECT sub_name FROM subject where creadit = 10 ;
--- SELECT  MAX(sub_name) FROM subject where creadit = 10 ;
+SELECT sub_name , creadit FROM subject where creadit = (SELECT max(creadit) FROM subject);
 
-SELECT sub_name FROM subject join mark on subject.sub_id = mark.sub_id where mark.mark = 12; 
+SELECT sub_name FROM subject JOIN mark on subject.sub_id = mark.sub_id WHERE mark = (SELECT max(mark) FROM mark);
+SELECT student.student_id, student.student_name , AVG(mark.mark) 
+FROM student join mark on student.student_id = mark.student_id 
+group by student.student_id , student.student_name;
