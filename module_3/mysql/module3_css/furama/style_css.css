@@ -1,0 +1,158 @@
+*{
+    box-sizing: border-box;
+}
+
+.back_end {
+    background-image:
+            url("https://dambritourist.vn/kham-pha-thanh-pho-bien-da-nang-voi-furama-resort-danang/imager_146043.jpg");
+    background-size: cover;
+}
+
+.guide {
+    font-size: 50px;
+    color: antiquewhite;
+}
+
+.logo {
+    text-align: center;
+}
+
+.left_wrapper {
+    width: 30%;
+    border: #f1f1f1;
+    position: relative;
+    overflow: auto;
+}
+
+#left_menu {
+    width: 200px;
+    /*float: left;*/
+}
+
+.menuitem_1 {
+    background-color: #999999;
+    list-style-type: none;
+    padding: 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin: 4px;
+}
+
+.menuitem_1:hover {
+    background-color: #ffffff;
+}
+
+.search input#search {
+    width: 160px;
+    height: 20px;
+    background: white;
+    border: none;
+    font-size: 10pt;
+    float: left;
+    color: black;
+    padding-left: 45px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#text {
+    font-size: 24px;color: #cbbe73;
+    line-height: 36px;
+    text-align: left;
+    font-family: sans-serif;
+    font-weight:700;font-style:normal
+}
+
+#text2 {
+    text-align: justify;
+}
+
+.body{
+    display: flex;
+}
+
+.w-33{
+    width: 33.3333%;
+    top: 0;
+}
+
+.body-img {
+    display: block;
+    width: 100%;
+    padding: 20px;
+}
+
+.h2 {
+    font-size: 15px;color: #cbbe73;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.info {
+    display: block;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+#p {
+    text-align: center;
+}
+.wrapper{
+    margin-top: -24px;
+
+}
+.menu{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding: 16px 0;
+
+}
+.menu-item{
+    background: transparent;
+    margin: 0 12px;
+    padding: 12px 24px;
+    position: relative;
+    border-radius: 3px;
+    border: 1px solid white;
+}
+.menu-link{
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.sub-menu{
+    position: absolute;
+    display: none;
+    padding: 0;
+    list-style: none;
+    border: 1px solid white;
+    background: transparent;
+    background-color: white ;
+    left: 0;
+    right: 0;
+    top:99%;
+}
+.sub-menu-item{
+    text-transform: uppercase;
+    padding: 12px;
+    margin: 0;
+}
+.menu-item:hover .sub-menu{
+    display: block;
+}
+.room_img{
+   display: flex;
+
+
+}
+.room_1{
+    text-align: center;
+    width: 25%;
+    top: 0;
+
+}
