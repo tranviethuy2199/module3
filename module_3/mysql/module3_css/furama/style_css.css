@@ -13,6 +13,56 @@
     color: antiquewhite;
 }
 
+.wrapper{
+    margin-top: -24px;
+
+}
+.menu{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding: 16px 0;
+
+}
+.menu-item{
+    background: transparent;
+    margin: 0 12px;
+    padding: 12px 24px;
+    position: relative;
+    border-radius: 3px;
+    border: 1px solid white;
+}
+.menu-link{
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.sub-menu{
+    position: absolute;
+    display: none;
+    padding: 0;
+    list-style: none;
+    border: 1px solid white;
+    background: transparent;
+    background-color: white ;
+    left: 0;
+    right: 0;
+    top:99%;
+}
+.sub-menu-item{
+    text-transform: uppercase;
+    background-color: black ;
+    font-size: 13px;
+    padding: 12px;
+    margin: 0;
+}
+.menu-item:hover .sub-menu{
+    display: block;
+}
+
 .logo {
     text-align: center;
 }
@@ -98,53 +148,7 @@
 #p {
     text-align: center;
 }
-.wrapper{
-    margin-top: -24px;
 
-}
-.menu{
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    padding: 16px 0;
-
-}
-.menu-item{
-    background: transparent;
-    margin: 0 12px;
-    padding: 12px 24px;
-    position: relative;
-    border-radius: 3px;
-    border: 1px solid white;
-}
-.menu-link{
-    text-decoration: none;
-    color: white;
-    text-transform: uppercase;
-    font-weight: bold;
-}
-.sub-menu{
-    position: absolute;
-    display: none;
-    padding: 0;
-    list-style: none;
-    border: 1px solid white;
-    background: transparent;
-    background-color: white ;
-    left: 0;
-    right: 0;
-    top:99%;
-}
-.sub-menu-item{
-    text-transform: uppercase;
-    padding: 12px;
-    margin: 0;
-}
-.menu-item:hover .sub-menu{
-    display: block;
-}
 .room_img{
    display: flex;
 

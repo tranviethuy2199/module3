@@ -1,0 +1,13 @@
+*{
+    box-sizing: border-box;
+}
+
+.responsive {
+    width: 25%;
+    float: left;
+}
+.picture {
+    content: "";
+    display: table;
+    clear: both;
+}
