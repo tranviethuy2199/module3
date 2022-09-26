@@ -1,0 +1,242 @@
+*{
+    box-sizing: border-box;
+}
+
+.container-web {
+    background-image:
+            url("https://dambritourist.vn/kham-pha-thanh-pho-bien-da-nang-voi-furama-resort-danang/imager_146043.jpg");
+    background-size: cover;
+}
+
+.guide {
+    font-size: 50px;
+    color: antiquewhite;
+}
+
+.wrapper{
+    margin-top: -24px;
+
+}
+.menu{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding: 16px 0;
+
+}
+.menu-item{
+    background: transparent;
+    margin: 0 12px;
+    padding: 12px 24px;
+    position: relative;
+    border-radius: 3px;
+    border: 1px solid white;
+}
+.menu-link{
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.sub-menu{
+    position: absolute;
+    display: none;
+    padding: 0;
+    list-style: none;
+    border: 1px solid white;
+    background: transparent;
+    background-color: white;
+    left: 0;
+    right: 0;
+    top:99%;
+}
+.sub-menu-item{
+    text-transform: uppercase;
+    background-color: #3B5998 ;
+    font-size: 13px;
+    padding: 12px;
+    margin: 0;
+}
+.menu-item:hover .sub-menu{
+    display: block;
+}
+
+.logo {
+    text-align: center;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s;
+}
+#mainnav{
+    padding: 10px;
+    margin: 10px;
+}
+#mainnav ul{
+    background: #3B5998;
+    list-style: none;
+    padding: 0px;
+    width: 200px;
+    text-align: left;
+}
+#mainnav ul li{
+    position: relative;
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #fff;
+}
+#mainnav ul .thefirst{
+    background: #1D1F20;
+}
+#mainnav ul li a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 0 16px;
+    display: block;
+}
+#mainnav li:hover{
+    background: #17306E;
+}
+#mainnav .sub-menu{
+    position: absolute;
+    left: 200px;
+    top: 0px;
+    width: 200px;
+    display: none;
+    text-align: left;
+    border-left: 1px solid #fff;
+    font-size: 90%;
+    border-radius: 0px 10px 10px 0px;
+}
+#mainnav li:hover .sub-menu{
+    display: block;
+    background: #3B5998;
+    color: red;
+}
+#mainnav .sub-menu2{
+    position: absolute;
+    left: 200px;
+    top: 0;
+    width: 200px;
+    border-left: 1px solid #fff;
+    border-radius: 0px 10px 10px 0px;
+    border: transparent;
+    display: none;
+}
+#mainnav .sub-menu li:hover .sub-menu2{
+    display: block;
+}
+#mainnav .sub-menu3{
+    position: absolute;
+    left: 200px;
+    top: 0;
+    width: 200px;
+    border-left: 1px solid #fff;
+    border-radius: 0px 10px 10px 0px;
+    display: none;
+}
+#mainnav .sub-menu2 li:hover .sub-menu3{
+    display: block;
+}
+
+/*.left_wrapper {*/
+/*    height: 50%;*/
+/*    width: 30%;*/
+/*    border: #f1f1f1;*/
+/*    position: relative;*/
+/*    overflow: auto;*/
+/*}*/
+
+/*#left_menu {*/
+/*    width: 200px;*/
+/*    !*float: left;*!*/
+/*}*/
+
+.menuitem_1 {
+    background-color: #999999;
+    list-style-type: none;
+    padding: 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin: 4px;
+}
+
+.menuitem_1:hover {
+    background-color: #ffffff;
+}
+
+.search input#search {
+    width: 160px;
+    height: 20px;
+    background: white;
+    border: none;
+    font-size: 10pt;
+    float: left;
+    color: black;
+    padding-left: 45px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#text {
+    font-size: 24px;color: #cbbe73;
+    line-height: 36px;
+    text-align: left;
+    font-family: sans-serif;
+    font-weight:700;font-style:normal
+}
+
+#text2 {
+    text-align: justify;
+}
+
+.body{
+    display: flex;
+}
+
+.w-33{
+    width: 33.3333%;
+    top: 0;
+}
+
+.body-img {
+    display: block;
+    width: 100%;
+    padding: 20px;
+}
+
+.h2 {
+    font-size: 15px;color: #cbbe73;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.info {
+    display: block;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+#p {
+    text-align: center;
+}
+
+.room_img{
+    display: flex;
+
+
+}
+.room_1{
+    padding: 10px;
+    text-align: center;
+    width: 25%;
+    top: 0;
+
+}
