@@ -38,23 +38,24 @@
         <table class="table table-striped">
             <tr>
                 <td>Name: </td>
-                <td><input type="text" name="name" id="name"></td>
+                <td><input type="text" name="name" id="name" value="${product.getName()}"></td>
             </tr>
             <tr>
                 <td>Price: </td>
-                <td><input type="text" name="email" id="price"></td>
+                <td><input type="text" name="price" id="price" value="${product.getPrice()}"></td>
             </tr>
             <tr>
                 <td>Describe: </td>
-                <td><input type="text" name="address" id="describe"></td>
+                <td><input type="text" name="describe" id="describe" value="${product.getDescribe()}"></td>
             </tr>
             <tr>
-                <td>Product: </td>
-                <td><input type="text" name="address" id="producer"></td>
+                <td>Producer: </td>
+                <td><input type="text" name="producer" id="producer" value="${product.getProducer()}"></td>
             </tr>
             <tr>
                 <td></td>
-                <td><input type="submit" value="Update product"></td>
+                <td>
+                    <input type="submit" value="Update product"></td>
             </tr>
         </table>
     </fieldset>

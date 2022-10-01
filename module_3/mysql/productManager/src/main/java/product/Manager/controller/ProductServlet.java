@@ -56,7 +56,7 @@ public class ProductServlet extends HttpServlet {
             case "delete":
                 showDeleteForm(request, response);
                 break;
-            case "find":
+            case "search":
                 searchProduct(request,response);
                 break;
             case "view":
@@ -111,7 +111,7 @@ public class ProductServlet extends HttpServlet {
     }
 
     private void updateProduct(HttpServletRequest request, HttpServletResponse response) {
-        int id = (int)(Math.random() * 10000);
+        int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
         double price = Double.parseDouble(request.getParameter("price"));
         String describe = request.getParameter("describe");
@@ -125,7 +125,7 @@ public class ProductServlet extends HttpServlet {
             product.setPrice(price);
             product.setDescribe(describe);
             product.setProducer(producer);
-            this.productService.update(id,product);
+            this.productService.update(product);
             request.setAttribute("product" , product);
             request.setAttribute("message","Product information was updated");
             dispatcher = request.getRequestDispatcher("edit.jsp");

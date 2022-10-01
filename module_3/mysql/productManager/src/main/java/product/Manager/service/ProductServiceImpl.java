@@ -31,12 +31,18 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product findById(int id) {
-        return products.get(id);
+        for (Product product: products) {
+            if (product.getId() == id) {
+               return product;
+            }
+        }
+        return  null;
     }
 
     @Override
-    public void update(int id, Product product) {
-        products.add(id, product);
+    public void update( Product product) {
+        int index = products.indexOf(product);
+        products.set(index,product);
     }
 
     @Override

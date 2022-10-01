@@ -57,4 +57,6 @@ public class Product {
     public void setProducer(String producer) {
         this.producer = producer;
     }
+
+
 }
