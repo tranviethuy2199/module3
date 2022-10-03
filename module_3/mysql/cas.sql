@@ -208,21 +208,40 @@ WHERE dich_vu.ma_dich_vu IN (SELECT hop_dong.ma_dich_vu FROM hop_dong WHERE hop_
  NOT IN (SELECT hop_dong.ma_dich_vu FROM hop_dong WHERE hop_dong.ngay_lam_hop_dong > "2020-12-31");
  
  -- yêu cầu 8 
- 
+-- Hiển thị thông tin ho_ten khách hàng có trong hệ thống, với yêu cầu ho_ten không trùng nhau.
+-- Học viên sử dụng theo 3 cách khác nhau để thực hiện yêu cầu trên.
+
  -- cách 1 : DISTINCT loại bỏ kết quả trùng lặp
+ -- lấy giá trị không trùng lặp , loại bỏ các giá trị trùng lặp . câu lệnh distinct chỉ đi kèm với câu lệnh select
  SELECT DISTINCT khach_hang.ho_ten FROM khach_hang;
  
  -- cách 2 : sử dụng UNION 2 lệnh select phải có cùng số biêu thức , trả về kết quả không trùng lặp 
+ -- UNION kết hợp kết quả từ 2 hoặc nhiêu lệnh select  , xóa các hàng trùng nhau trong các lệnh select
  SELECT khach_hang.ho_ten FROM khach_hang UNION SELECT khach_hang.ho_ten FROM khach_hang;
+ 
+ -- cách 3 :
+ SELECT ho_ten FROM khach_hang GROUP BY ho_ten;
  
  
  
  -- yêu cầu 9 
- SELECT month(ngay_lam_hop_dong) as doanh_thu_theo_thang , COUNT(ma_hop_dong) FROM hop_dong WHERE YEAR(ngay_lam_hop_dong) = '2021' GROUP BY doanh_thu_theo_thang;
+-- Thực hiện thống kê doanh thu theo tháng, nghĩa là tương ứng với mỗi tháng trong năm 2021 thì sẽ có bao nhiêu khách hàng thực hiện đặt phòng.
+ SELECT month(ngay_lam_hop_dong) as doanh_thu_theo_thang , COUNT(ma_hop_dong)
+ FROM hop_dong 
+ WHERE YEAR(ngay_lam_hop_dong) = '2021' 
+ GROUP BY doanh_thu_theo_thang;
  
  -- yêu cầu 10 
- SELECT hop_dong.ma_hop_dong , hop_dong.ngay_lam_hop_dong , hop_dong.ngay_ket_thuc , hop_dong.tien_dat_coc , sum(hop_dong_chi_tiet.so_luong) as so_luong_dich_vu_di_kem
- FROM hop_dong JOIN hop_dong_chi_tiet ON hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong GROUP BY hop_dong.ma_hop_dong;
+ -- Hiển thị thông tin tương ứng với từng hợp đồng thì đã sử dụng bao nhiêu dịch vụ đi kèm.
+ -- Kết quả hiển thị bao gồm ma_hop_dong, ngay_lam_hop_dong, 
+ -- ngay_ket_thuc, tien_dat_coc, so_luong_dich_vu_di_kem (được tính dựa trên việc sum so_luong ở dich_vu_di_kem).
+ 
+SELECT hop_dong.ma_hop_dong, hop_dong.ngay_lam_hop_dong,hop_dong.ngay_ket_thuc, hop_dong.tien_dat_coc,
+ SUM(ifnull(hop_dong_chi_tiet.so_luong,0)) as so_luong_dich_vu_di_kem
+FROM hop_dong 
+LEFT JOIN hop_dong_chi_tiet
+ ON hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong
+GROUP BY hop_dong.ma_hop_dong;
  
  -- yêu cầu 11 
  SELECT khach_hang.ho_ten , loai_khach.ten_loai_khach , khach_hang.dia_chi , dich_vu_di_kem.ma_dich_vu_di_kem , dich_vu_di_kem.ten_dich_vu_di_kem  FROM dich_vu_di_kem
