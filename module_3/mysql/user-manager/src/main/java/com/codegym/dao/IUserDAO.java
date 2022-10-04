@@ -19,4 +19,20 @@ public interface IUserDAO {
     List<User> findByCountry(String country) throws SQLException;
 
     public List<User> sort(String sortByName) throws SQLException;
+
+    User getUserById(int id);
+
+    void editUserStore(User user) throws SQLException;
+
+    void addUserTransaction(User user, int[] permision);
+
+    void deleteUserPro (int id);
+
+    public List<User> selectAllUsersPro();
+
+
+
+
+
+
 }

@@ -52,4 +52,14 @@ public class User implements Comparable<User>{
     public int compareTo(User o) {
         return this.name.compareTo(o.getName());
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", country='" + country + '\'' +
+                '}';
+    }
 }
