@@ -44,31 +44,27 @@
             </tr>
             <tr>
                 <td>Day of birth: </td>
-                <td><input type="text" name="dayOfBirth" id="dayOfBirth" value="${employee.getDayOfBirth()}"></td>
+                <td><input type="text" name="date_of_birth" id="dayOfBirth" value="${employee.getDateOfBirth()}"></td>
             </tr>
             <tr>
                 <td>Cmnd: </td>
-                <td><input type="text" name="cmnd" id="cmnd" value="${employee.getCmnd()}"></td>
+                <td><input type="text" name="id_card" id="cmnd" value="${employee.getCmnd()}"></td>
             </tr>
             <tr>
                 <td>email: </td>
                 <td><input type="text" name="email" id="email" value="${employee.getEmail()}"></td>
             </tr>
             <tr>
-                <td>gender: </td>
-                <td><input type="text" name="email" id="gender" value="${employee.getGender()}"></td>
-            </tr>
-            <tr>
                 <td>education_degree: </td>
-                <td><input type="text" name="email" id="education_degree" value="${employee.getEducation_degree()}"></td>
+                <td><input type="text" name="education_degree" id="education_degree" value="${employee.getEducation_degree()}"></td>
             </tr>
             <tr>
                 <td>position_id: </td>
-                <td><input type="text" name="email" id="position_id" value="${employee.getPosition_id()}"></td>
+                <td><input type="text" name="position_id" id="position_id" value="${employee.getPosition_id()}"></td>
             </tr>
             <tr>
                 <td>division: </td>
-                <td><input type="text" name="email" id="division" value="${employee.getDivision()}"></td>
+                <td><input type="text" name="division_id" id="division" value="${employee.getDivision_id()}"></td>
             </tr>
             <tr>
                 <td></td>

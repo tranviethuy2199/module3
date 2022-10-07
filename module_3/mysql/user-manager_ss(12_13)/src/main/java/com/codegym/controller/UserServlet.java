@@ -66,7 +66,7 @@ public class UserServlet  extends HttpServlet {
                     deleteUser(request, response);
                     break;
                 case "search":
-                    searchCountry(request,response);
+                        searchCountry(request,response);
                     break;
                 case "sort":
                     sort(request,response);
@@ -152,8 +152,7 @@ public class UserServlet  extends HttpServlet {
 
     }
 
-    private void insertUser(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException, ServletException {
+    private void insertUser(HttpServletRequest request, HttpServletResponse response)throws SQLException, IOException, ServletException {
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String country = request.getParameter("country");

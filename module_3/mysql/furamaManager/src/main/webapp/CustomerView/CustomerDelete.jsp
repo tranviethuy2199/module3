@@ -26,8 +26,8 @@
                 <td>${requestScope["customer"].getName()}</td>
             </tr>
             <tr>
-                <td>Day of birth: </td>
-                <td>${requestScope["customer"].getDayOfBirth()}</td>
+                <td>Date of birth: </td>
+                <td>${requestScope["customer"].getDateOfBirth()}</td>
             </tr>
             <tr>
                 <td>cmnd: </td>
@@ -36,6 +36,22 @@
             <tr>
                 <td>email: </td>
                 <td>${requestScope["customer"].getEmail()}</td>
+            </tr>
+            <tr>
+                <td>gender: </td>
+                <td>${requestScope["customer"].getGender()}</td>
+            </tr>
+            <tr>
+                <td>phone_number: </td>
+                <td>${requestScope["customer"].getPhone_Number()}</td>
+            </tr>
+            <tr>
+                <td>customer_type_id: </td>
+                <td>${requestScope["customer"].getCustomer_type_id()}</td>
+            </tr>
+            <tr>
+                <td>address: </td>
+                <td>${requestScope["customer"].getAddress()}</td>
             </tr>
             <tr>
                 <td><input type="submit" value="Delete customer"></td>

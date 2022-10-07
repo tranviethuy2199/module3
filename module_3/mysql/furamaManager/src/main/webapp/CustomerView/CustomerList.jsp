@@ -30,30 +30,39 @@
 <p>
     <a href="/">Back to Home</a>
 </p>
-<%--<form action="/customer">--%>
-<%--    <input type="hidden" name="action" value="search">--%>
-<%--    <input type="text" name="search" placeholder="tìm kiếm thông tin">--%>
-<%--    <button type="submit">enter</button>--%>
-<%--</form>--%>
+<form action="/customer">
+    <input type="hidden" name="action" value="search">
+    <input type="text" name="search" placeholder="tìm kiếm thông tin">
+    <button type="submit">enter</button>
+</form>
 <table class="table table-striped">
     <tr>
         <td>Id</td>
+        <td>Customer_type</td>
         <td>Name</td>
         <td>Day Of Birth</td>
         <td>cmnd</td>
+        <td>phone Number</td>
         <td>Email</td>
+        <td>Gender</td>
+        <td>Address</td>
+        <td></td>
         <td></td>
         <td></td>
         <td></td>
 
     </tr>
-    <c:forEach items='${requestScope["customer"]}' var='customer'>
+    <c:forEach items="${customer}" var='customer'>
         <tr>
             <td><a href="/customer?action=view&id=${customer.getId()}">${customer.getId()}</a></td>
+            <td>${customer.getCustomer_type_id()}</td>
             <td>${customer.getName()}</td>
-            <td>${customer.getDayOfBirth()}</td>
+            <td>${customer.getDateOfBirth()}</td>
+            <td>${customer.getGender()}</td>
             <td>${customer.getCmnd()}</td>
+            <td>${customer.getPhone_number()}</td>
             <td>${customer.getEmail()}</td>
+            <td>${customer.getAddress()}</td>
             <td><a href="/customer?action=edit&id=${customer.getId()}">edit</a></td>
             <td><a href="/customer?action=delete&id=${customer.getId()}">delete</a></td>
             <td><a href="/customer?action=view&id=${customer.getId()}">view</a></td>

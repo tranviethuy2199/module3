@@ -19,24 +19,38 @@
     <a href="/">Back to Home</a>
 </p>
 <table>
-    <table>
-        <tr>
-            <td>Name: </td>
-            <td>${requestScope["customer"].getName()}</td>
-        </tr>
-        <tr>
-            <td>Day of birth: </td>
-            <td>${requestScope["customer"].getDayOfBirth()}</td>
-        </tr>
-        <tr>
-            <td>cmnd: </td>
-            <td>${requestScope["customer"].getCmnd()}</td>
-        </tr>
-        <tr>
-            <td>email: </td>
-            <td>${requestScope["customer"].getEmail()}</td>
-        </tr>
-    </table>
+    <tr>
+        <td>customer_type_id:</td>
+        <td>${requestScope["customer"].getCustomer_type_id()}</td>
+    </tr>
+    <tr>
+        <td>Name:</td>
+        <td>${requestScope["customer"].getName()}</td>
+    </tr>
+    <tr>
+        <td>Day of birth:</td>
+        <td>${requestScope["customer"].getDateOfBirth()}</td>
+    </tr>
+    <tr>
+        <td>gender:</td>
+        <td>${requestScope["customer"].getGender()}</td>
+    </tr>
+    <tr>
+        <td>cmnd:</td>
+        <td>${requestScope["customer"].getCmnd()}</td>
+    </tr>
+    <tr>
+        <td>phone_number:</td>
+        <td>${requestScope["customer"].getPhone_number()}</td>
+    </tr>
+    <tr>
+        <td>email:</td>
+        <td>${requestScope["customer"].getEmail()}</td>
+    </tr>
+    <tr>
+        <td>address:</td>
+        <td>${requestScope["customer"].getAddress()}</td>
+    </tr>
 </table>
 </body>
 </html>

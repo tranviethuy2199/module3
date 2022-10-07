@@ -30,7 +30,7 @@
             </tr>
             <tr>
                 <td>Day of birth: </td>
-                <td>${requestScope["employee"].getDayOfBirth()}</td>
+                <td>${requestScope["employee"].getDateOfBirth()}</td>
             </tr>
             <tr>
                 <td>cmnd: </td>
@@ -39,10 +39,6 @@
             <tr>
                 <td>email: </td>
                 <td>${requestScope["employee"].getEmail()}</td>
-            </tr>
-            <tr>
-                <td>gender: </td>
-                <td>${requestScope["employee"].getGender()}</td>
             </tr>
             <tr>
                 <td>education_degree: </td>
@@ -54,7 +50,7 @@
             </tr>
             <tr>
                 <td>division: </td>
-                <td>${requestScope["employee"].getDivision()}</td>
+                <td>${requestScope["employee"].getDivision_id()}</td>
             </tr>
             <tr>
                 <td><input type="submit" value="Delete employee"></td>

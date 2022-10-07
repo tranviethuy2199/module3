@@ -41,19 +41,15 @@
             </tr>
             <tr>
                 <td>Day of birth: </td>
-                <td><input type="text" name="dayOfBirth" id="dayOfBirth"></td>
+                <td><input type="text" name="date_of_birth" id="dateOfBirth"></td>
             </tr>
             <tr>
                 <td>cmnd: </td>
-                <td><input type="text" name="cmnd" id="cmnd"></td>
+                <td><input type="text" name="id_card" id="cmnd"></td>
             </tr>
             <tr>
                 <td>email </td>
                 <td><input type="text" name="email" id="email"></td>
-            </tr>
-            <tr>
-                <td>gender </td>
-                <td><input type="text" name="gender" id="gender"></td>
             </tr>
             <tr>
                 <td>education_degree </td>
@@ -65,7 +61,7 @@
             </tr>
             <tr>
                 <td>division </td>
-                <td><input type="text" name="division" id="division"></td>
+                <td><input type="text" name="division_id" id="division"></td>
             </tr>
             <tr>
                 <td></td>

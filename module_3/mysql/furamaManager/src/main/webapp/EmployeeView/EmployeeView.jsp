@@ -25,20 +25,28 @@
             <td>${requestScope["employee"].getName()}</td>
         </tr>
         <tr>
-            <td>Day of birth: </td>
-            <td>${requestScope["employee"].getDayOfBirth()}</td>
+            <td>Date of birth: </td>
+            <td>${requestScope["employee"].getDateOfBirth()}</td>
         </tr>
         <tr>
             <td>cmnd: </td>
             <td>${requestScope["employee"].getCmnd()}</td>
         </tr>
         <tr>
+            <td>Salary: </td>
+            <td>${requestScope["employee"].getSalary()}</td>
+        </tr>
+        <tr>
+            <td>Phone Number: </td>
+            <td>${requestScope["employee"].getPhone_number()}</td>
+        </tr>
+        <tr>
             <td>email: </td>
             <td>${requestScope["employee"].getEmail()}</td>
         </tr>
         <tr>
-            <td>gender: </td>
-            <td>${requestScope["employee"].getGender()}</td>
+            <td>Address: </td>
+            <td>${requestScope["employee"].getAddress()}</td>
         </tr>
         <tr>
             <td>education_degree: </td>

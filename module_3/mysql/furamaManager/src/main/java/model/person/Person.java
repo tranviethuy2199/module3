@@ -5,21 +5,21 @@ import java.util.Objects;
 public class Person {
     private int id;
     private String name;
-    private String dayOfBirth;
+    private String dateOfBirth;
     private String cmnd;
     private String email;
-    private String gender;
+    private String phone_number;
 
     public Person() {
     }
 
-    public Person(int id, String name, String dayOfBirth, String cmnd, String email, String gender) {
+    public Person(int id, String name, String dateOfBirth, String cmnd, String email,  String phone_number) {
         this.id = id;
         this.name = name;
-        this.dayOfBirth = dayOfBirth;
+        this.dateOfBirth = dateOfBirth;
         this.cmnd = cmnd;
         this.email = email;
-        this.gender = gender;
+        this.phone_number = phone_number;
     }
 
     public int getId() {
@@ -38,12 +38,12 @@ public class Person {
         this.name = name;
     }
 
-    public String getDayOfBirth() {
-        return dayOfBirth;
+    public String getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setDayOfBirth(String dayOfBirth) {
-        this.dayOfBirth = dayOfBirth;
+    public void setDateOfBirth(String dayOfBirth) {
+        this.dateOfBirth = dayOfBirth;
     }
 
     public String getCmnd() {
@@ -62,12 +62,13 @@ public class Person {
         this.email = email;
     }
 
-    public String getGender() {
-        return gender;
+
+    public String getPhone_number() {
+        return phone_number;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setPhone_number(String phone_number) {
+        this.phone_number = phone_number;
     }
 
     @Override
@@ -75,14 +76,14 @@ public class Person {
         return "Person{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", dayOfBirth='" + dayOfBirth + '\'' +
+                ", dayOfBirth='" + dateOfBirth + '\'' +
                 ", cmnd='" + cmnd + '\'' +
                 ", email='" + email + '\'' +
-                ", gender='" + gender + '\'' +
+                ", phone_number='" + phone_number + '\'' +
                 '}';
     }
 
-//    @Override
+    //    @Override
 //    public boolean equals(Object o) {
 //        if (this == o) return true;
 //        if (o == null || getClass() != o.getClass()) return false;

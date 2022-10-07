@@ -3,24 +3,36 @@ package model.person;
 import java.util.Objects;
 
 public class Customer extends Person {
-    private String customer_type;
+    private int customer_type_id;
     private String address;
+    private int gender;
+
+
 
     public Customer() {
     }
 
-    public Customer(int id, String name, String dayOfBirth, String cmnd, String email, String gender, String customer_type, String address) {
-        super(id, name, dayOfBirth, cmnd, email, gender);
-        this.customer_type = customer_type;
+    public Customer(int id, String name, String dateOfBirth, String cmnd, String email, int gender, String phone_number, int customer_type_id, String address) {
+        super(id, name, dateOfBirth, cmnd, email, phone_number);
+        this.customer_type_id = customer_type_id;
         this.address = address;
+        this.gender = gender;
     }
 
-    public String getCustomer_type() {
-        return customer_type;
+    public int getGender() {
+        return gender;
     }
 
-    public void setCustomer_type(String customer_type) {
-        this.customer_type = customer_type;
+    public void setGender(int gender) {
+        this.gender = gender;
+    }
+
+    public int getCustomer_type_id() {
+        return customer_type_id;
+    }
+
+    public void setCustomer_type(int customer_type) {
+        this.customer_type_id = customer_type;
     }
 
     public String getAddress() {
@@ -31,13 +43,13 @@ public class Customer extends Person {
         this.address = address;
     }
 
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "customer_type='" + customer_type + '\'' +
-                ", address='" + address + '\'' +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Customer{" +
+//                "customer_type='" + customer_type_id + '\'' +
+//                ", address='" + address + '\'' +
+//                '}';
+//    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -29,7 +29,7 @@
         <tr>
             <td>Id</td>
             <td>Name</td>
-            <td>Day Of Birth</td>
+            <td>Date Of Birth</td>
             <td>cmnd</td>
             <td>Email</td>
             <td>Gender</td>
@@ -41,13 +41,12 @@
             <tr>
                 <td>${employee.getId()}</td>
                 <td>${employee.getName()}</td>
-                <td>${employee.getDayOfBirth()}</td>
+                <td>${employee.getDateOfBirth()}</td>
                 <td>${employee.getCmnd()}</td>
                 <td>${employee.getEmail()}</td>
-                <td>${employee.getGender()}</td>
                 <td>${employee.getEducation_degree()}</td>
                 <td>${employee.getPosition_id()}</td>
-                <td>${employee.getDivision()}</td>
+                <td>${employee.getDivision_id()}</td>
             </tr>
         </c:forEach>
     </table>

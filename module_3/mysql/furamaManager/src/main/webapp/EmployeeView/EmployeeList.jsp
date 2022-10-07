@@ -32,9 +32,9 @@
 <%--    <input type="text" name="search" placeholder="tìm kiếm khách hàng">--%>
 <%--    <button type="submit">enter</button>--%>
 <%--</form>--%>
-<p>
-    <a href="/employee">Back to List</a>
-</p>
+<%--<p>--%>
+<%--    <a href="/employee">Back to List</a>--%>
+<%--</p>--%>
 <p>
     <a href="/">Back to Home</a>
 </p>
@@ -44,11 +44,13 @@
         <td>Name</td>
         <td>Day Of Birth</td>
         <td>cmnd</td>
+        <td>Salary</td>
+        <td>Phone Number</td>
         <td>Email</td>
-        <td>Gender</td>
+        <td>Address</td>
         <td>Education</td>
         <td>Position</td>
-        <td>Division</td>
+        <td>Division_id</td>
         <td></td>
         <td></td>
         <td></td>
@@ -58,13 +60,15 @@
         <tr>
             <td><a href="/employee?action=view&id=${employee.getId()}">${employee.getId()}</a></td>
             <td>${employee.getName()}</td>
-            <td>${employee.getDayOfBirth()}</td>
+            <td>${employee.getDateOfBirth()}</td>
             <td>${employee.getCmnd()}</td>
-            <td>${employee.getEmail()}</td>
-            <td>${employee.getGender()}</td>
             <td>${employee.getEducation_degree()}</td>
+            <td>${employee.getPhone_number()}</td>
+            <td>${employee.getEmail()}</td>
+            <td>${employee.getAddress()}</td>
+            <td>${employee.getSalary()}</td>
             <td>${employee.getPosition_id()}</td>
-            <td>${employee.getDivision()}</td>
+            <td>${employee.getDivision_id()}</td>
             <td><a href="/employee?action=edit&id=${employee.getId()}">edit</a></td>
             <td><a href="/employee?action=delete&id=${employee.getId()}">delete</a></td>
             <td><a href="/employee?action=view&id=${employee.getId()}">view</a></td>

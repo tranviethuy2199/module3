@@ -35,25 +35,42 @@
 <p>
     <a href="/">Back to Home</a>
 </p>
-<form method="post">
+<form method="post" action="/customer?action=edit">
     <fieldset>
         <legend>customer information</legend>
         <table class="table table-striped">
+            <input type="text" name ="idEdit" value="${idEdit}" hidden>
             <tr>
                 <td>Name: </td>
                 <td><input type="text" name="name" id="name" value="${customer.getName()}"></td>
             </tr>
             <tr>
                 <td>Day of birth: </td>
-                <td><input type="text" name="dayOfBirth" id="dayOfBirth" value="${customer.getDayOfBirth()}"></td>
+                <td><input type="text" name="date_of_birth" id="dateOfBirth" value="${customer.getDateOfBirth()}"></td>
             </tr>
             <tr>
                 <td>Cmnd: </td>
-                <td><input type="text" name="cmnd" id="cmnd" value="${customer.getCmnd()}"></td>
+                <td><input type="text" name="id_card" id="cmnd" value="${customer.getCmnd()}"></td>
             </tr>
             <tr>
                 <td>email: </td>
                 <td><input type="text" name="email" id="email" value="${customer.getEmail()}"></td>
+            </tr>
+            <tr>
+                <td>gender: </td>
+                <td><input type="text" name="gender" id="gender" value="${customer.getGender()}"></td>
+            </tr>
+            <tr>
+                <td>phone_number: </td>
+                <td><input type="text" name="phone_number" id="phone_number" value="${customer.getPhone_Number()}"></td>
+            </tr>
+            <tr>
+                <td>customer_type_id: </td>
+                <td><input type="text" name="customer_type_id" id="customer_type_id" value="${customer.getCustomer_type_id()}"></td>
+            </tr>
+            <tr>
+                <td>address: </td>
+                <td><input type="text" name="address" id="address" value="${customer.getAddress()}"></td>
             </tr>
             <tr>
                 <td></td>

@@ -32,14 +32,20 @@
             <td>Day Of Birth</td>
             <td>cmnd</td>
             <td>Email</td>
+            <td>Gender</td>
+            <td>Customer_type_id</td>
+            <td>Address</td>
         </tr>
         <c:forEach items='${customer}' var="customer">
             <tr>
                 <td>${customer.getId()}</td>
                 <td>${customer.getName()}</td>
-                <td>${customer.getDayOfBirth()}</td>
+                <td>${customer.getDateOfBirth()}</td>
                 <td>${customer.getCmnd()}</td>
                 <td>${customer.getEmail()}</td>
+                <td>${customer.getGender()}</td>
+                <td>${customer.getCustomer_type_id()}</td>
+                <td>${customer.getAddress()}</td>
             </tr>
         </c:forEach>
     </table>
