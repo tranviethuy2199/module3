@@ -15,8 +15,7 @@
         }
 
         .container-web {
-            background-image:
-                    url("https://dambritourist.vn/kham-pha-thanh-pho-bien-da-nang-voi-furama-resort-danang/imager_146043.jpg");
+            background: url('240_F_274929177_Q6xgPROMWP3yCxL4LQgpzIOVJ98p76eN.jpg') ;
             background-size: cover;
         }
 
@@ -175,7 +174,7 @@
 <body>
 <div class="container-web">
     <div class="logo"><img width="200px" height="200px" ;
-                           src="images/logo_furuma.png">
+                           >
     </div>
 
     <div class="wrapper">

@@ -184,27 +184,6 @@ public class CustomerServiceImpl implements ICustomerService {
         return customer;
     }
 
-//    @Override
-//    public void editCustomerStore(Customer customer) throws SQLException {
-//        Connection connection = BaseRepository.getConnectDB();
-//        PreparedStatement PreparedStatement = connection.prepareStatement(UPDATE_USERS_SQL);
-//
-//        try {
-//            PreparedStatement.setInt(1, customer.getCustomer_type_id());
-//            PreparedStatement.setString(2, customer.getName());
-//            PreparedStatement.setString(3, customer.getDateOfBirth());
-//            PreparedStatement.setInt(4, customer.getGender());
-//            PreparedStatement.setString(5, customer.getCmnd());
-//            PreparedStatement.setString(6, customer.getPhone_number());
-//            PreparedStatement.setString(7, customer.getEmail());
-//            PreparedStatement.setString(8, customer.getAddress());
-//            System.out.println(PreparedStatement);
-//            PreparedStatement.executeUpdate();
-//        } catch (SQLException throwAbles) {
-//            throwAbles.printStackTrace();
-//        }
-//
-//    }
 
     @Override
     public void addCustomerTransaction(Customer customer, int[] permision) {
@@ -314,55 +293,4 @@ public class CustomerServiceImpl implements ICustomerService {
         }
         return null;
     }
-//
-//    static {
-//            customers.add(new Customer(1,"huy","02/01/1999","123456789","huytran211998@gmail.com","nam","gold" ,"Việt Nam"));
-//            customers.add(new Customer(2,"hoa","02/01/1989","987654321","hoa@gmail.com","nữ","silver" ,"Việt Nam"));
-//            customers.add(new Customer(3,"jackson","10/01/1990","123456789","jackson@gmail.com","nam","Diamond" ,"Việt Nam"));
-//            customers.add(new Customer(4,"bidden","20/01/1997","123456789","bidden@gmail.com","nam","gold" ,"Việt Nam"));
-//            customers.add(new Customer(5,"donal trump","05/01/1988","123456789","donaltrump@gmail.com","nam","Diamond" ,"Việt Nam"));
-//            customers.add(new Customer(6,"putin","09/01/1995","123456789","puttin@gmail.com","nam","gold" ,"Việt Nam"));
-//    }
-
-//    @Override
-//    public List<Customer> findAll() {
-//        return customers;
-//    }
-//
-//    @Override
-//    public void save(Customer customer) {
-//        customers.add(customer);
-//    }
-//
-//    @Override
-//    public Customer findById(int id) {
-//        for (Customer customer : customers){
-//            if (customer.getId() == id) {
-//                return customer;
-//            }
-//        }
-//        return null;
-//    }
-//
-//    @Override
-//    public void update(Customer customer) {
-//        int index = customers.indexOf(customer);
-//        customers.set(index,customer);
-//    }
-//
-//    @Override
-//    public void remove(int id) {
-//        customers.remove(id);
-//    }
-//
-//    @Override
-//    public List<Customer> findByName(String name) {
-//        List<Customer> customerList = new ArrayList<>();
-//        for (Customer customer : customers){
-//            if (customer.getName().equals(name)) {
-//                customerList.add(customer);
-//            }
-//        }
-//        return customerList;
-//    }
 }

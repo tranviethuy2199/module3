@@ -48,12 +48,24 @@
                 <td><input type="text" name="id_card" id="cmnd"></td>
             </tr>
             <tr>
+                <td>salary: </td>
+                <td><input type="text" name="salary" id="salary"></td>
+            </tr>
+            <tr>
+                <td>phone number: </td>
+                <td><input type="text" name="phone_number" id="phone_number"></td>
+            </tr>
+            <tr>
                 <td>email </td>
                 <td><input type="text" name="email" id="email"></td>
             </tr>
             <tr>
+                <td>Address </td>
+                <td><input type="text" name="address" id="address"></td>
+            </tr>
+            <tr>
                 <td>education_degree </td>
-                <td><input type="text" name="education_degree" id="education_degree"></td>
+                <td><input type="text" name="education_degree_id" id="education_degree_id"></td>
             </tr>
             <tr>
                 <td>position_id </td>

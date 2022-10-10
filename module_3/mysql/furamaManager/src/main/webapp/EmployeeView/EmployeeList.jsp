@@ -24,14 +24,14 @@
 </head>
 <body>
 <h1>Employee</h1>
-<%--<p>--%>
-<%--    <a href="/employee?action=create">Create new Employee</a>--%>
-<%--</p>--%>
-<%--<form action="/employee">--%>
-<%--    <input type="hidden" name="action" value="search">--%>
-<%--    <input type="text" name="search" placeholder="tìm kiếm khách hàng">--%>
-<%--    <button type="submit">enter</button>--%>
-<%--</form>--%>
+<p>
+    <a href="/employee?action=create">Create new Employee</a>
+</p>
+<form action="/employee">
+    <input type="hidden" name="action" value="search">
+    <input type="text" name="search" placeholder="tìm kiếm khách hàng">
+    <button type="submit">enter</button>
+</form>
 <%--<p>--%>
 <%--    <a href="/employee">Back to List</a>--%>
 <%--</p>--%>
@@ -62,11 +62,11 @@
             <td>${employee.getName()}</td>
             <td>${employee.getDateOfBirth()}</td>
             <td>${employee.getCmnd()}</td>
-            <td>${employee.getEducation_degree()}</td>
+            <td>${employee.getSalary()}</td>
             <td>${employee.getPhone_number()}</td>
             <td>${employee.getEmail()}</td>
             <td>${employee.getAddress()}</td>
-            <td>${employee.getSalary()}</td>
+            <td>${employee.getEducation_degree_id()}</td>
             <td>${employee.getPosition_id()}</td>
             <td>${employee.getDivision_id()}</td>
             <td><a href="/employee?action=edit&id=${employee.getId()}">edit</a></td>

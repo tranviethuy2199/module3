@@ -3,7 +3,7 @@ package model.person;
 import java.util.Objects;
 
 public class Employee extends Person {
-    private int education_degree;
+    private int education_degree_id;
     private int position_id;
     private int division_id;
     private double salary;
@@ -13,9 +13,9 @@ public class Employee extends Person {
     }
 
     public Employee(int id, String name, String dateOfBirth, String cmnd, String email,
-                    String phone_number, int education_degree, int position_id, int division_id, double salary, String address) {
+                    String phone_number, int education_degree_id, int position_id, int division_id, double salary, String address) {
         super(id, name, dateOfBirth, cmnd, email,  phone_number);
-        this.education_degree = education_degree;
+        this.education_degree_id = education_degree_id;
         this.position_id = position_id;
         this.division_id = division_id;
         this.salary = salary;
@@ -38,12 +38,12 @@ public class Employee extends Person {
         this.address = address;
     }
 
-    public int getEducation_degree() {
-        return education_degree;
+    public int getEducation_degree_id() {
+        return education_degree_id;
     }
 
-    public void setEducation_degree(int education_degree) {
-        this.education_degree = education_degree;
+    public void setEducation_degree_id(int education_degree) {
+        this.education_degree_id = education_degree;
     }
 
     public int getPosition_id() {

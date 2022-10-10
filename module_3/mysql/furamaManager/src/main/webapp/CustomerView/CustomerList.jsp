@@ -52,7 +52,7 @@
         <td></td>
 
     </tr>
-    <c:forEach items="${customer}" var='customer'>
+    <c:forEach items="${customers}" var='customer'>
         <tr>
             <td><a href="/customer?action=view&id=${customer.getId()}">${customer.getId()}</a></td>
             <td>${customer.getCustomer_type_id()}</td>

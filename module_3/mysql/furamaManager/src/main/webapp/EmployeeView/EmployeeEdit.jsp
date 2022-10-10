@@ -34,29 +34,38 @@
 <p>
     <a href="/">Back to Home</a>
 </p>
-<form action="/employee?action=edit">
+<form action="/employee?action=edit" method="post">
     <fieldset>
         <legend>employee information</legend>
         <table class="table table-striped">
+            <input type="text" name="idEdit" value="${idEdit}" hidden>
             <tr>
                 <td>Name: </td>
                 <td><input type="text" name="name" id="name" value="${employee.getName()}"></td>
             </tr>
             <tr>
                 <td>Day of birth: </td>
-                <td><input type="text" name="date_of_birth" id="dayOfBirth" value="${employee.getDateOfBirth()}"></td>
+                <td><input type="text" name="date_of_birth" id="dateOfBirth" value="${employee.getDateOfBirth()}"></td>
             </tr>
             <tr>
                 <td>Cmnd: </td>
                 <td><input type="text" name="id_card" id="cmnd" value="${employee.getCmnd()}"></td>
             </tr>
             <tr>
+                <td>Salary: </td>
+                <td><input type="text" name="salary" id="salary" value="${employee.getSalary()}"></td>
+            </tr>
+            <tr>
                 <td>email: </td>
                 <td><input type="text" name="email" id="email" value="${employee.getEmail()}"></td>
             </tr>
             <tr>
+                <td>address: </td>
+                <td><input type="text" name="address" id="address" value="${employee.getAddress()}"></td>
+            </tr>
+            <tr>
                 <td>education_degree: </td>
-                <td><input type="text" name="education_degree" id="education_degree" value="${employee.getEducation_degree()}"></td>
+                <td><input type="text" name="education_degree_id" id="education_degree_id" value="${employee.getEducation_degree_id()}"></td>
             </tr>
             <tr>
                 <td>position_id: </td>

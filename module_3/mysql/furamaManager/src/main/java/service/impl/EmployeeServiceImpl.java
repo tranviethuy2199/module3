@@ -10,11 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeServiceImpl implements IEmployeeService {
-    private static final String INSERT_EMPLOYEE_SQL = "INSERT INTO `case_study`.`employee`(`name`,`date_of_birth`,`id_card`,`salary`,`phone_number`,`email`,`address`,`position_id`,`education_degree_id`,`division_id`,`username`) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
-    private static final String SELECT_EMPLOYEE_BY_ID = "SELECT id,name,date_of_birth,id_card,salary,phone_number,email,address,position_id,education_degree_id,division_id FROM customer WHERE id=?";
+    private static final String INSERT_EMPLOYEE_SQL = "INSERT INTO `case_study`.`employee`(`name`,`date_of_birth`,`id_card`,`salary`,`phone_number`,`email`,`address`,`position_id`,`education_degree_id`,`division_id`) VALUES(?,?,?,?,?,?,?,?,?,?)";
+    private static final String SELECT_EMPLOYEE_BY_ID = "SELECT name,date_of_birth,id_card,salary,phone_number,email,address,position_id,education_degree_id,division_id  FROM employee WHERE id=?";
     private static final String SELECT_ALL_EMPLOYEE = "SELECT * FROM employee";
     private static final String DELETE_EMPLOYEE_SQL = "DELETE FROM employee WHERE id = ?";
-    private static final String UPDATE_EMPLOYEE_SQL = "UPDATE employee SET name = ?,date_of_birth = ?,id_card =? ,phone_number = ? ,email = ?,address = ?,position_id =?,education_degree_id = ? , division_id =? ,username=? WHERE id =?";
+    private static final String UPDATE_EMPLOYEE_SQL = "UPDATE employee SET name = ?,date_of_birth = ?,id_card =? ,salary=?,phone_number = ? ,email = ?,address = ?,position_id =?,education_degree_id = ? , division_id =?  WHERE id =?";
 
     public EmployeeServiceImpl(){};
 
@@ -32,7 +32,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
             preparedStatement.setString(6, employee.getEmail());
             preparedStatement.setString(7, employee.getAddress());
             preparedStatement.setInt(8, employee.getPosition_id());
-            preparedStatement.setInt(9, employee.getEducation_degree());
+            preparedStatement.setInt(9, employee.getEducation_degree_id());
             preparedStatement.setInt(10, employee.getDivision_id());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
@@ -54,14 +54,15 @@ public class EmployeeServiceImpl implements IEmployeeService {
                 String name = rs.getString("name");
                 String dateOfBirth = rs.getString("date_of_birth");
                 String cmnd = rs.getString("id_card");
-                double salary = rs.getDouble("salary");
-                String phone_number = rs.getString("phone_number");
                 String email = rs.getString("email");
+                String phone_number = rs.getString("phone_number");
                 String address = rs.getString("address");
+                double salary = rs.getDouble("salary");
                 int position_id = rs.getInt("position_id");
                 int education_degree_id = rs.getInt("education_degree_id");
                 int division_id = rs.getInt("division_id");
-                employee = new Employee(id,name,dateOfBirth,cmnd,email,phone_number, (int) salary,position_id,education_degree_id,division_id,address);
+
+                employee = new Employee(id,name,dateOfBirth,cmnd,email,phone_number, position_id,education_degree_id,division_id,salary,address);
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -105,7 +106,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
                 int position_id = rs.getInt("position_id");
                 int education_degree_id = rs.getInt("education_degree_id");
                 int division_id = rs.getInt("division_id");
-                employees.add(new Employee(id,name,dateOfBirth,cmnd,email,phone_number, (int) salary,position_id,education_degree_id,division_id,address));
+                employees.add(new Employee(id,name,dateOfBirth,cmnd,email,phone_number, position_id,education_degree_id,division_id,salary,address));
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -131,17 +132,18 @@ public class EmployeeServiceImpl implements IEmployeeService {
         PreparedStatement statement = connection.prepareStatement(UPDATE_EMPLOYEE_SQL);
         try {
             // name,date,cmnd,salary,phone,email,address,position,education,division
-            statement.setString(1,String.valueOf(employee.getId()));
-            statement.setString(2, employee.getName());
-            statement.setString(3, employee.getDateOfBirth());
-            statement.setString(4, employee.getCmnd());
-            statement.setDouble(5,employee.getSalary());
-            statement.setString(6, employee.getPhone_number());
-            statement.setString(7, employee.getEmail());
-            statement.setString(8, employee.getAddress());
-            statement.setInt(9, employee.getEducation_degree());
-            statement.setInt(10, employee.getPosition_id());
-            statement.setInt(11, employee.getDivision_id());
+
+            statement.setString(1, employee.getName());
+            statement.setString(2, employee.getDateOfBirth());
+            statement.setString(3, employee.getCmnd());
+            statement.setDouble(4,employee.getSalary());
+            statement.setString(5, employee.getPhone_number());
+            statement.setString(6, employee.getEmail());
+            statement.setString(7, employee.getAddress());
+            statement.setInt(8, employee.getEducation_degree_id());
+            statement.setInt(9, employee.getPosition_id());
+            statement.setInt(10, employee.getDivision_id());
+            statement.setInt(11,employee.getId());
             rowUpdated = statement.executeUpdate() > 0;
         }catch (SQLException e) {
             printSQLException(e);
@@ -181,37 +183,13 @@ public class EmployeeServiceImpl implements IEmployeeService {
                 int position_id = rs.getInt("position_id");
                 int education_degree_id = rs.getInt("education_degree_id");
                 int division_id = rs.getInt("division_id");
-                employee = new Employee(id,name,dateOfBirth,cmnd,email,phone_number, (int) salary,position_id,education_degree_id,division_id,address);
+                employee = new Employee(id,name,dateOfBirth,cmnd,email,phone_number, position_id,education_degree_id,division_id,salary,address);
             }
         } catch (SQLException e) {
             printSQLException(e);
         }
         return employee;
     }
-
-//    @Override
-//    public void editEmployeeStore(Employee employee) throws SQLException {
-//        try (Connection connection = BaseRepository.getConnectDB();
-//             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_EMPLOYEE_SQL);) {
-//            // name,date,cmnd,salary,phone,email,address,position,education,division
-//            preparedStatement.setString(1, employee.getName());
-//            preparedStatement.setString(2, employee.getDateOfBirth());
-//            preparedStatement.setString(3, employee.getCmnd());
-//            preparedStatement.setDouble(10,employee.getSalary());
-//            preparedStatement.setString(5, employee.getPhone_number());
-//            preparedStatement.setString(4, employee.getEmail());
-//            preparedStatement.setString(9,employee.getAddress());
-//            preparedStatement.setInt(6, employee.getEducation_degree());
-//            preparedStatement.setInt(7, employee.getPosition_id());
-//            preparedStatement.setInt(8, employee.getDivision());
-//            System.out.println(preparedStatement);
-//            preparedStatement.executeUpdate();
-//        } catch (SQLException e) {
-//
-//            printSQLException(e);
-//
-//        }
-//    }
 
     @Override
     public void addEmployeeTransaction(Employee employee, int[] permision) {
@@ -231,7 +209,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
             pstmt.setString(5, employee.getPhone_number());
             pstmt.setString(4, employee.getEmail());
             pstmt.setString(10, employee.getAddress());
-            pstmt.setInt(6, employee.getEducation_degree());
+            pstmt.setInt(6, employee.getEducation_degree_id());
             pstmt.setInt(7, employee.getPosition_id());
             pstmt.setInt(8, employee.getDivision_id());
             int rowAffected = pstmt.executeUpdate();
@@ -306,7 +284,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
                 int division_id = rs.getInt("division_id");
                 String address = rs.getString("address");
                 double salary = rs.getDouble("salary");
-                Employee employee =new Employee(id,name,dateOfBirth,cmnd,email,phone_number, (int) salary,position_id,education_degree_id,division_id,address);
+                Employee employee =new Employee(id,name,dateOfBirth,cmnd,email,phone_number, position_id,education_degree_id,division_id,salary,address);
                 employeeList.add(employee);
             }
         } catch (SQLException throwAbles) {
@@ -324,55 +302,5 @@ public class EmployeeServiceImpl implements IEmployeeService {
         }
         return null;
     }
-//    private static final List<Employee> employees = new ArrayList<>();
-//
-//    static {
-//        employees.add(new Employee(1 , "huy","02/01/1999","12345679","huytran211998@gmail.com","nam" , "cao đẳng" ,"chuyên viên" ,"marketing" ));
-//        employees.add(new Employee(2 , "hoàng","07/07/1998","12345679","hoangtran211998@gmail.com","nam" , "trung cấp" ,"giám sát" ,"marketing"));
-//        employees.add(new Employee(3 , "hoàng","02/10/1998","12345679","hoangnguyen211998@gmail.com","nam" , "đại học" ,"quản lý" ,"sale"));
-//        employees.add(new Employee(4 , "hưng","08/08/1997","12345679","hungtran211998@gmail.com","nam" , "cao đẳng" ,"lễ tân" ,"phục vụ"));
-//        employees.add(new Employee(5 , "hùng","28/02/199","12345679","hungtran211998@gmail.com","nam" , "cao đẳng" ,"phục vụ" ,"phục vụ"));
-//    }
-//
-//    @Override
-//    public List<Employee> findAll() {
-//        return employees;
-//    }
-//
-//    @Override
-//    public void save(Employee employee) {
-//        employees.add(employee);
-//    }
-//
-//    @Override
-//    public Employee findById(int id) {
-//        for (Employee employee1 : employees){
-//            if (employee1.getId() == id) {
-//                return employee1;
-//            }
-//        }
-//        return null;
-//    }
-//
-//    @Override
-//    public void update(Employee employee) {
-//       int index = employees.indexOf(employee);
-//       employees.set(index,employee);
-//    }
-//
-//    @Override
-//    public void remove(int id) {
-//        employees.remove(id);
-//    }
-//
-//    @Override
-//    public List<Employee> findByName(String name) {
-//        List<Employee> employeeList = new ArrayList<>();
-//        for (Employee employee : employees){
-//            if (employee.getName().equals(name)) {
-//                employeeList.add(employee);
-//            }
-//        }
-//        return employeeList;
-//    }
+
 }

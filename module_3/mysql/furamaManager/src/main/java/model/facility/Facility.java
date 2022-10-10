@@ -7,26 +7,10 @@ public class Facility {
    private double cost;
    private int amount_people;
    private String rent_type_id;
-//   private String standard_room;
-//   private String description_other;
-//   private double pool_area;
-//   private int number_floors;
 
    public Facility() {
    }
 
-//   public Facility(int id, String name, int area, double cost, int amount_people, String rent_type, String standard_room, String description_other, double pool_area, int number_floors) {
-//      this.id = id;
-//      this.name = name;
-//      this.area = area;
-//      this.cost = cost;
-//      this.amount_people = amount_people;
-//      this.rent_type = rent_type;
-//      this.standard_room = standard_room;
-//      this.description_other = description_other;
-//      this.pool_area = pool_area;
-//      this.number_floors = number_floors;
-//   }
 
 
    public Facility(int id, String name, int area, double cost, int amount_people, String rent_type_id) {
@@ -78,6 +62,13 @@ public class Facility {
       this.amount_people = amount_people;
    }
 
+   public String getRent_type_id() {
+      return rent_type_id;
+   }
+
+   public void setRent_type_id(String rent_type_id) {
+      this.rent_type_id = rent_type_id;
+   }
 
    @Override
    public String toString() {

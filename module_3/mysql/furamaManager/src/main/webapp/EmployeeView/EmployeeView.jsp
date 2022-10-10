@@ -50,7 +50,7 @@
         </tr>
         <tr>
             <td>education_degree: </td>
-            <td>${requestScope["employee"].getEducation_degree()}</td>
+            <td>${requestScope["employee"].getEducation_degree_id()}</td>
         </tr>
         <tr>
             <td>position_id: </td>
@@ -58,7 +58,7 @@
         </tr>
         <tr>
             <td>division: </td>
-            <td>${requestScope["employee"].getDivision()}</td>
+            <td>${requestScope["employee"].getDivision_id()}</td>
         </tr>x
     </table>
 </table>

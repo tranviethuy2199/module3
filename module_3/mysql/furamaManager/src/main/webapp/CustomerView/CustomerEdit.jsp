@@ -39,7 +39,7 @@
     <fieldset>
         <legend>customer information</legend>
         <table class="table table-striped">
-            <input type="text" name ="idEdit" value="${idEdit}" hidden>
+<%--            <input type="text" name ="customer" value="${customer}" hidden>--%>
             <tr>
                 <td>Name: </td>
                 <td><input type="text" name="name" id="name" value="${customer.getName()}"></td>
@@ -62,7 +62,7 @@
             </tr>
             <tr>
                 <td>phone_number: </td>
-                <td><input type="text" name="phone_number" id="phone_number" value="${customer.getPhone_Number()}"></td>
+                <td><input type="text" name="phone_number" id="phone_number" value="${customer.getPhone_number()}"></td>
             </tr>
             <tr>
                 <td>customer_type_id: </td>
